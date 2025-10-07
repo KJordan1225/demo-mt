@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Foundation\Application;
+use App\Http\Middleware\SetTenantUrlDefaults;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Stancl\Tenancy\Middleware\InitializeTenancyByPath;
@@ -9,13 +10,15 @@ use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
-        web: __DIR__.'/../routes/web.php',
+        web: [__DIR__.'/../routes/web.php',
+              __DIR__.'/../routes/tenant.php',],
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
         // Register aliases (replaces $middlewareAliases in Http\Kernel)
         $middleware->alias([
+            'tenant.defaults' => SetTenantUrlDefaults::class,
             'tenant'    => InitializeTenancyByPath::class,
             'universal' => PreventAccessFromCentralDomains::class,
         ]);
