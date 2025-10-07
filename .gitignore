@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /vendor/
 node_modules/
 npm-debug.log
@@ -28,3 +29,65 @@ Homestead.json
 .env.production
 .phpactor.json
 auth.json
+=======
+*.log
+.DS_Store
+.env
+.env.backup
+.env.production
+.phpactor.json
+.phpunit.result.cache
+/.fleet
+/.idea
+/.nova
+/.phpunit.cache
+/.vscode
+/.zed
+/auth.json
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+/vendor
+Homestead.json
+Homestead.yaml
+Thumbs.db
+
+# --- Dependencies & builds
+/node_modules
+/vendor
+/public/build
+
+# --- Dev servers & symlinks
+/public/hot
+/public/storage
+
+# --- Secrets & environment
+.env
+.env.*
+/storage/*.key
+
+# --- IDE / editor cruft
+/.idea
+/.vscode
+/.fleet
+/.phpstorm.meta.php
+
+# --- OS junk
+.DS_Store
+Thumbs.db
+
+# --- Test & tooling caches
+.phpunit.result.cache
+.php-cs-fixer.cache
+
+# --- Package manager logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+>>>>>>> fb07b0b (Initial commit)
