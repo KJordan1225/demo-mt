@@ -1,21 +1,20 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/', fn() => 'Central app (no tenant)'); // central
-
-// Everything under /t/{tenant} is tenant-aware
-Route::middleware('tenant')->prefix('t/{tenant}')->group(function () {
-    Route::get('/', function () {
-        // Example: prove which tenant you’re in
-        return 'Tenant ID: ' . tenant('id');
-    });
-
-    // Add your tenant routes here…
-    Route::get('/hello', fn() => 'Hello from '.tenant('id'));
+Route::get('/', function () {
+    return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
