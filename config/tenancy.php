@@ -83,6 +83,9 @@ return [
          */
             // 'pgsql' => Stancl\Tenancy\TenantDatabaseManagers\PostgreSQLSchemaManager::class, // Separate by schema instead of database
         ],
+
+        'tenant_connection_name' => 'tenant',             // must match above
+        'central_connection'     => env('DB_CONNECTION', 'mysql'),
     ],
 
     /**

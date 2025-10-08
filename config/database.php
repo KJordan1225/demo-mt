@@ -113,6 +113,22 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
+        'tenant' => [
+            'driver'   => env('DB_CONNECTION', 'mysql'),
+            'host'     => env('TENANCY_DB_HOST', env('DB_HOST', '127.0.0.1')),
+            'port'     => env('TENANCY_DB_PORT', env('DB_PORT', '3306')),
+            'database' => null, // Tenancy will set the database per request
+            'username' => env('TENANCY_DB_USERNAME', env('DB_USERNAME', 'root')),
+            'password' => env('TENANCY_DB_PASSWORD', env('DB_PASSWORD', '')),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset'  => 'utf8mb4',
+            'collation'=> 'utf8mb4_unicode_ci',
+            'prefix'   => '',
+            'prefix_indexes' => true,
+            'strict'   => true,
+            'engine'   => null,
+        ],
+
     ],
 
     /*
