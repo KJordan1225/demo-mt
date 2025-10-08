@@ -48,7 +48,7 @@ return [
      * Database tenancy config. Used by DatabaseTenancyBootstrapper.
      */
     'database' => [
-        'central_connection' => env('DB_CONNECTION', 'central'),
+        // 'central_connection' => env('DB_CONNECTION', 'central'),
 
         /**
          * Connection used as a "template" for the dynamically created tenant database connection.
@@ -208,4 +208,10 @@ return [
         '--class' => 'DatabaseSeeder', // root seeder class
         // '--force' => true, // This needs to be true to seed tenant databases in production
     ],
+
+    'tenant_database_names' => function ($tenant) {
+        // e.g. store on the tenant or derive from id
+        return 'tenant_' . $tenant->getKey();
+    },
+
 ];

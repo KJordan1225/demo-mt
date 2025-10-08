@@ -6,13 +6,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Stancl\Tenancy\Database\Concerns\UsesTenantConnection;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-     use Notifiable; 
+     use Notifiable;
+     use UsesTenantConnection; 
 
-     protected $connection = 'tenant';
+    //  protected $connection = 'tenant';
 
     /**
      * The attributes that are mass assignable.
