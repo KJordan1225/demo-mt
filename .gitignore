@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /vendor/
 node_modules/
 npm-debug.log
@@ -29,7 +28,6 @@ Homestead.json
 .env.production
 .phpactor.json
 auth.json
-=======
 *.log
 .DS_Store
 .env
@@ -90,4 +88,3 @@ yarn-error.log*
 pnpm-debug.log*
 
 
->>>>>>> fb07b0b (Initial commit)
